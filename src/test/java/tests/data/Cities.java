@@ -1,5 +1,5 @@
 package tests.data;
 
-public enum Citis {
-    Москва, СПБ;
+public enum Cities {
+    Москва, Омск, Новосибирск, Тула;
 }

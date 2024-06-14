@@ -2,18 +2,26 @@ plugins {
     id 'java'
 }
 
-group = 'ru.kulikovaelena'
-version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation(
+            "com.codeborne:selenide:7.2.3",
+            "org.junit.jupiter:junit-jupiter:5.10.2",
+            "org.slf4j:slf4j-simple:2.0.13"
+    )
 }
 
 test {
     useJUnitPlatform()
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
 }

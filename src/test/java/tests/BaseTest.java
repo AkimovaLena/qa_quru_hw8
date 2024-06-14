@@ -5,12 +5,18 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
 public class BaseTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
+        open("https://moskva.beeline.ru/customers/products/");
+        if ($(".FnP54").isEnabled()) {
+            $(".tVHtn").$(".AdThl").click();
+        }
     }
 
     @AfterAll
