@@ -27,7 +27,6 @@ public class TestMTS extends BaseTest {
         $("[aria-label='Каталог, провалиться в пункт Space, ArrowRight, выйти из пункта ArrowLeft, выход из каталога Esc или Shift + Tab']").
                 $(byText(nameCatalog)).click();
         $("div.EyvsU").shouldHave(text(nameCatalog));
-
     }
 
 
@@ -36,7 +35,7 @@ public class TestMTS extends BaseTest {
             "20 , 700 , 850"
     })
     @ParameterizedTest(name = "Расчет тарифа для {0} Гб и {1} минут")
-    void tariffСalculationVer1(String gb, String minute, String sum) {
+    void tariffCalculationVer1(String gb, String minute, String sum) {
         $(".AdThl.cNwcj.gqblx.sRkzH.prz9u").click();
         $("[aria-label='Каталог, провалиться в пункт Space, ArrowRight, выйти из пункта ArrowLeft, выход из каталога Esc или Shift + Tab']").
                 $(byText("Мобильная связь")).click();
@@ -45,12 +44,11 @@ public class TestMTS extends BaseTest {
         $$("[data-t-id=tempComponents-PresetPicker]").first().$(byText(gb)).click();
         $$("[data-t-id=tempComponents-PresetPicker]").get(1).$(byText(minute)).click();
         $("[data-t-id=components-TotalSum]").shouldHave(text(sum));
-
     }
 
     @CsvFileSource(resources = "/test_data/tariff.csv")
     @ParameterizedTest(name = "Расчет тарифа для {0} Гб и {1} минут")
-    void tariffСalculationVer2(String gb, String minute, String sum) {
+    void tariffCalculationVer2(String gb, String minute, String sum) {
         $(".AdThl.cNwcj.gqblx.sRkzH.prz9u").click();
         $("[aria-label='Каталог, провалиться в пункт Space, ArrowRight, выйти из пункта ArrowLeft, выход из каталога Esc или Shift + Tab']").
                 $(byText("Мобильная связь")).click();
@@ -59,7 +57,6 @@ public class TestMTS extends BaseTest {
         $$("[data-t-id=tempComponents-PresetPicker]").first().$(byText(gb)).click();
         $$("[data-t-id=tempComponents-PresetPicker]").get(1).$(byText(minute)).click();
         $("[data-t-id=components-TotalSum]").shouldHave(text(sum));
-
     }
 
 
@@ -69,6 +66,5 @@ public class TestMTS extends BaseTest {
         $("#toggleButton-regions-desktop").click();
         $(".content-inner").$(byText(city.name())).click();
         $("#toggleButton-regions-desktop").shouldHave(text(city.name()));
-
     }
 }
